@@ -23,7 +23,7 @@
     //路径映射，相当于baseurl
     "baseUrl": "./",
     "paths": {
-      "@/*":["src/*"]
+      "@/*": ["src/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

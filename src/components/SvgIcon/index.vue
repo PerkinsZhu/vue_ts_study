@@ -1,21 +1,21 @@
 <template>
-    <svg>
-        <use :xlink:href="prefix + name" :fill="color"></use>
-    </svg>
+  <svg>
+    <use :xlink:href="prefix + name" :fill="color"></use>
+  </svg>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 defineProps({
-    prefix: {
-        type: String,
-        default: "#icon-"
-    },
-    name: String,
-    color: {
-        type: String,
-        default: ''
-    }
+  prefix: {
+    type: String,
+    default: '#icon-',
+  },
+  name: String,
+  color: {
+    type: String,
+    default: '',
+  },
 })
-</script> 
+</script>
 
-<style scoped lang='less'></style>
+<style scoped lang="less"></style>

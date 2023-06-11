@@ -12,7 +12,7 @@ const app = createApp(App)
 
 app.use(ElementPlus)
 app.use(ElementPlus, {
-    locale: zhCn,
-  })
+  locale: zhCn,
+})
 
 app.mount('#app')
