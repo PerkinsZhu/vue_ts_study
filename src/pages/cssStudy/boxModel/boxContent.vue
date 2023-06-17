@@ -6,8 +6,8 @@
     nostrum eaque.
   </span>
 
-  <br/>
-  <img src="./内边距设置.png"/>
+  <br />
+  <img src="./内边距设置.png" />
 </template>
 
 <script setup lang="ts"></script>
@@ -23,9 +23,6 @@
   min-height: 200px;
   max-height: 600px;
 
-
   padding: 300px 50px;
 }
-
-
 </style>
