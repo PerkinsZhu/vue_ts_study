@@ -8,8 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import BoxContent from './boxContent.vue';
-
+import BoxContent from './boxContent.vue'
 </script>
 
 <style scoped lang="scss">
