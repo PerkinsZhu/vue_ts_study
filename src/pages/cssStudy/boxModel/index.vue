@@ -4,12 +4,10 @@
   <br />
   <img src="./盒子布局.png" alt="#" />
 
-  <div style="margin-top: 500px;">
-    <h2> 盒子内容练习</h2>
+  <div style="margin-top: 500px">
+    <h2>盒子内容练习</h2>
     <BoxContent></BoxContent>
   </div>
-
-
 </template>
 
 <script setup lang="ts">

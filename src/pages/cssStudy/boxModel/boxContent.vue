@@ -12,7 +12,7 @@
   <div class="content">
     <div id="center">
       通过 可以使我左右居住。但是上下居中是不行的
-      <br>
+      <br />
       下margin 可以控制下面的兄弟位置
     </div>
     <img src="./盒子外边距_margin.png" />
@@ -42,7 +42,6 @@
 
 .content {
   margin-top: 200px;
-
 }
 
 .content #center {
@@ -54,6 +53,5 @@
    */
   // 或者通过复合元素的方式。 第一个参数控制上下 第二个参数控制左右
   margin: 20px auto;
-
 }
 </style>
