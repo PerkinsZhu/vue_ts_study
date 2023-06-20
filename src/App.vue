@@ -3,7 +3,12 @@
   <!-- <SvgStudy></SvgStudy> -->
 
   <!-- 盒子模型分析 -->
-  <BoxModel></BoxModel>
+  <!-- <BoxModel></BoxModel> -->
+
+
+  <!-- 浮动练习 -->
+
+  <Page></Page>
 </template>
 
 <script setup lang="ts">
@@ -11,6 +16,9 @@
 import SvgStudy from '@/pages/svgStudy/index.vue'
 
 import BoxModel from '@/pages/cssStudy/boxModel/index.vue'
+
+import Page from './pages/cssStudy/boxModel/page.vue';
+
 </script>
 
 <style scoped lang="scss"></style>
