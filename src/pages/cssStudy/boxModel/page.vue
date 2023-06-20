@@ -88,9 +88,6 @@
   text-align: center;
 }
 
-.content {
-  width: 960px;
-}
 
 .item3,
 .item4,
@@ -103,16 +100,6 @@
   margin-right: 10px;
   line-height: 200px;
   text-align: center;
-
-}
-
-.item4,
-.item5 {}
-
-.item1 {
-  height: 200px;
-  line-height: 200px;
-  border: 1px black dotted;
 }
 
 .item2 {
@@ -124,13 +111,11 @@
   width: 368px;
   height: 198px;
   line-height: 200px;
-
   border: 1px black dotted;
 }
 
 .menu {
   height: 30px;
-  width: 960px;
   background-color: gray;
   margin-top: 10px;
   text-align: center;
@@ -139,7 +124,6 @@
 
 .main {
   width: 960px;
-  height: 400px;
   margin: 0px auto;
 }
 
@@ -148,26 +132,22 @@
   line-height: 80px;
 }
 
+
+.banner1,
+.banner2,
 .logo {
   background-color: gray;
   height: 80px;
-  width: 200px;
-
 }
 
 .banner1 {
-  background-color: gray;
-  height: 80px;
   width: 540px;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin: 0px 10px;
 }
 
-.banner2 {
-  background-color: gray;
-  height: 80px;
+.banner2,
+.logo {
   width: 200px;
-
 }
 
 .leftfix {
