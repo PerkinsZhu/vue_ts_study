@@ -42,6 +42,7 @@
 </script>
 
 <style scoped lang="scss">
+// 清除所有默认样式
 * {
   margin: 0px;
   padding: 0px;
@@ -116,7 +117,6 @@
 
 .item2 {
   margin-left: 10px;
-  // margin-right: 10px;
 }
 
 .item1,
