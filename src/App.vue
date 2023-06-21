@@ -8,7 +8,9 @@
 
   <!-- 浮动练习 -->
 
-  <Page></Page>
+  <!-- <Page></Page> -->
+  <Exercise></Exercise>
+
 </template>
 
 <script setup lang="ts">
@@ -18,6 +20,8 @@ import SvgStudy from '@/pages/svgStudy/index.vue'
 import BoxModel from '@/pages/cssStudy/boxModel/index.vue'
 
 import Page from './pages/cssStudy/boxModel/page.vue';
+
+import Exercise from '@/pages/cssStudy/exercise/App.vue'
 
 </script>
 
