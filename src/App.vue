@@ -9,8 +9,10 @@
   <!-- 浮动练习 -->
 
   <!-- <Page></Page> -->
-  <Exercise></Exercise>
+  <!-- <Exercise></Exercise> -->
 
+  <!-- 弹性盒子模型 -->
+  <flexBox></flexBox>
 </template>
 
 <script setup lang="ts">
@@ -22,6 +24,9 @@ import BoxModel from '@/pages/cssStudy/boxModel/index.vue'
 import Page from './pages/cssStudy/boxModel/page.vue';
 
 import Exercise from '@/pages/cssStudy/exercise/App.vue'
+
+import flexBox from '@/pages/cssStudy/flexBox/index.vue'
+
 
 </script>
 
