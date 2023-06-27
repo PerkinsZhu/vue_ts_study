@@ -12,7 +12,8 @@
   <!-- <Exercise></Exercise> -->
 
   <!-- 弹性盒子模型 -->
-  <flexBox></flexBox>
+<!--  <flexBox></flexBox>-->
+   <NaiveUI></NaiveUI>
 </template>
 
 <script setup lang="ts">
@@ -26,6 +27,8 @@ import Page from './pages/cssStudy/boxModel/page.vue';
 import Exercise from '@/pages/cssStudy/exercise/App.vue'
 
 import flexBox from '@/pages/cssStudy/flexBox/index.vue'
+
+import NaiveUI from '@/pages/naiveUI/index.vue'
 
 
 </script>

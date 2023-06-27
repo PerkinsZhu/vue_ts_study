@@ -22,7 +22,7 @@
   //调整主轴换行方式 wrap:换行  nowrap：不换行  wrap-reverse:反向换行
   flex-wrap: wrap;
   //调整主轴对齐方式 flex-start  flex-end  center  space-between  space-around
-  justify-content: flex-start;
+  justify-content: center;
   // 调整交叉轴（侧轴，内容项）对齐方式 flex-start  flex-end  center  baseline  stretch（拉伸效果，此时不能设置height）
   // align-items: stretch;
   // 调整多根轴线(box整体)对齐方式 flex-start  flex-end  center  space-between  space-around  stretch
