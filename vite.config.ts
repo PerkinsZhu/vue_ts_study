@@ -9,6 +9,7 @@ export default defineConfig({
   plugins: [
     vue(),
     createSvgIconsPlugin({
+      // 配置svg存放的文件夹
       iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
       symbolId: 'icon-[dir]-[name]',
     }),

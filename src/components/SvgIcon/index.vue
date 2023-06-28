@@ -1,5 +1,5 @@
 <template>
-  <svg>
+  <svg :style="{ width, height }">
     <use :xlink:href="prefix + name" :fill="color"></use>
   </svg>
 </template>
@@ -15,7 +15,18 @@ defineProps({
     type: String,
     default: '',
   },
+  width: {
+    type: String,
+    default: '64px',
+  },
+  height: {
+    type: String,
+    default: '64px',
+  },
 })
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="scss">
+
+
+</style>
