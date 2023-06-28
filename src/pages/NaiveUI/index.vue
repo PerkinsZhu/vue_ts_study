@@ -58,7 +58,6 @@
 
       </div>
       <div class="item">
-<!--
 
         <n-statistic label="你一共处理了" tabular-nums>
           <n-number-animation ref="numberAnimationInstRef" :from="0" :to="12039" />
@@ -72,20 +71,29 @@
             播放
           </n-button>
         </n-space>
--->
 
       </div>
     </div>
+    
+    <div class="shasha">
+      <img src="@/pages/cssStudy/imgs/img.png">
+      <img src="@/pages/cssStudy/imgs/img_1.png">
+      <img src="@/pages/cssStudy/imgs/img_2.png">
+    </div>
+    
+    
   </n-watermark>
 
 
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { defineComponent, ref } from 'vue'
 
 import {NButton, NProgress, NWatermark, NTimeline, NTimelineItem,
-  NSpace,NStatistic,NNumberAnimation } from 'naive-ui'
+  NSpace,NStatistic,NNumberAnimation,NumberAnimationInst } from 'naive-ui'
+
+const numberAnimationInstRef = ref<NumberAnimationInst | null>(null)
 
 function handleClick () {
   numberAnimationInstRef.value?.play()
@@ -108,5 +116,21 @@ function handleClick () {
   height: 400px;
   background-color: skyblue;
   margin: 10px;
+}
+
+.shasha {
+  background-color: skyblue;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+  }
+  img:hover{
+    transform: scale(1.2);
+  }
+
 }
 </style>
