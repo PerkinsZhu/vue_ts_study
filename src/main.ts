@@ -1,20 +1,25 @@
-import { createApp } from 'vue'
-import App from '@/App.vue'
+import { createApp } from "vue";
+import App from "@/App.vue";
 
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-//@ts-ignore
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import ElementPlus from "element-plus";
+import "element-plus/dist/index.css";
+// @ts-ignore
+import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 // svg插件需要配置代码
-import 'virtual:svg-icons-register'
+import "virtual:svg-icons-register";
 //引入全局样式
-import '@/styles/index.scss'
+import "@/styles/index.scss";
 
-const app = createApp(App)
+import { Test } from "@/components/Test/Test.ts";
 
-app.use(ElementPlus)
+// 测试mock函数
+Test.testMock();
+
+const app = createApp(App);
+
+app.use(ElementPlus);
 app.use(ElementPlus, {
-  locale: zhCn,
-})
+  locale: zhCn
+});
 
-app.mount('#app')
+app.mount("#app");

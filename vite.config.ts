@@ -1,39 +1,41 @@
-import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import { ConfigEnv, UserConfigExport } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
 // 引入svg
-import {createSvgIconsPlugin} from 'vite-plugin-svg-icons'
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 // 引入mock
-import {viteMockServe} from 'vite-plugin-mock'
+import { viteMockServe } from "vite-plugin-mock";
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default ({ command }: ConfigEnv): UserConfigExport => {
+  return {
     plugins: [
-        vue(),
-        // 配置svg插件
-        createSvgIconsPlugin({
-            // 配置svg存放的文件夹
-            iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
-            symbolId: 'icon-[dir]-[name]',
-        }),
-        viteMockServe({
-            mockPath: 'mock',
-            localEnabled: true,
-            supportTs: false,
-        }),
+      vue(),
+      // 配置svg插件
+      createSvgIconsPlugin({
+        // 配置svg存放的文件夹
+        iconDirs: [path.resolve(process.cwd(), "src/assets/icons")],
+        symbolId: "icon-[dir]-[name]"
+      }),
+      viteMockServe({
+        // mockPath: "mock",
+        localEnabled: command === "serve",
+      })
     ],
     resolve: {
-        alias: {
-            '@': path.resolve('./src'), //相对路径别名配置，用@代替 src
-        },
+      alias: {
+        "@": path.resolve("./src") //相对路径别名配置，用@代替 src
+      }
     },
     // 配置全局scss变量
     css: {
-        preprocessorOptions: {
-            scss: {
-                javascriptEnable: true,
-                additionalData: `@import "./src/styles/variables.scss";`,
-            }
+      preprocessorOptions: {
+        scss: {
+          javascriptEnable: true,
+          additionalData: `@import "./src/styles/variables.scss";`
         }
+      }
     }
-})
+  };
+
+}
