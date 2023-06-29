@@ -5,10 +5,12 @@
  @date 2023/6/28 16:17
 -->
 <script setup lang="ts">
+import Test from "@/components/Test/Test.vue";
 </script>
 
 <template>
  <div class="test"><p>style test</p></div>
+  <Test/>
 </template>
 
 <style scoped lang="scss">
