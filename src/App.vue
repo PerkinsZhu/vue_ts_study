@@ -5,7 +5,6 @@
  @date 2023/6/28 16:17
 -->
 <script setup lang="ts">
-import Test from "@/components/Test/Test.vue";
 </script>
 
 <template>

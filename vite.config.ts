@@ -6,6 +6,11 @@ import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 // 引入mock
 import { viteMockServe } from "vite-plugin-mock";
 
+// element 引入自动导入
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 // https://vitejs.dev/config/
 export default ({ command }: ConfigEnv): UserConfigExport => {
   return {
@@ -20,11 +25,17 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       viteMockServe({
         // mockPath: "mock",
         localEnabled: command === "serve",
-      })
+      }),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
     ],
     resolve: {
       alias: {
-        "@": path.resolve("./src") //相对路径别名配置，用@代替 src
+        '@': path.resolve(__dirname, 'src') //相对路径别名配置，用@代替 src
       }
     },
     // 配置全局scss变量
