@@ -15,12 +15,15 @@ let useStore = useUserStore();
 
 import $router from "@/router";
 
+const loading = ref(false);
+
 const form = reactive({
   userName: "",
   password: ""
 });
 
 const onSubmit = async () => {
+  loading.value = true;
   try {
     await useStore.userLogin(form);
     $router.push("/");
@@ -34,6 +37,8 @@ const onSubmit = async () => {
       type: "error",
       message: (error as Error).message
     });
+  } finally {
+    loading.value = false;
   }
 };
 </script>
@@ -57,7 +62,7 @@ const onSubmit = async () => {
         <el-input v-model="form.password" :prefix-icon="Lock" show-password />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">登录</el-button>
+        <el-button type="primary" @click="onSubmit" :loading="loading">登录</el-button>
       </el-form-item>
     </el-form>
   </div>
