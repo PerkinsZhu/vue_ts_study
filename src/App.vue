@@ -9,13 +9,11 @@ import Test from "@/components/Test/Test.vue";
 </script>
 
 <template>
- <div class="test"><p>style test</p></div>
-  <Test/>
+  <router-view></router-view>
 </template>
 
 <style scoped lang="scss">
-.test{
-  // $color 该变量取自于 styles\variables.scss
+.test {
   background-color: $color;
   width: 100px;
   height: 100px;

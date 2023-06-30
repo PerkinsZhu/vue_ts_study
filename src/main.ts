@@ -7,6 +7,8 @@ import "element-plus/dist/index.css";
 import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 // svg插件需要配置代码
 import "virtual:svg-icons-register";
+
+import router from "@/router/index.ts";
 //引入全局样式
 import "@/styles/index.scss";
 
@@ -18,6 +20,7 @@ Test.testMock();
 const app = createApp(App);
 
 app.use(ElementPlus);
+app.use(router);
 app.use(ElementPlus, {
   locale: zhCn
 });
