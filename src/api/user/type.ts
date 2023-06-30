@@ -11,8 +11,8 @@ export interface ResponseData {
   ok?: boolean
 }
 
-export interface LoginResponseData extends ResponseData {
-  data?: string
+export interface LoginResponseData<T> extends ResponseData {
+  data?: T
 }
 
 export interface userInfoResponseData extends ResponseData {

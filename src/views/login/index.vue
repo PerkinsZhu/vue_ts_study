@@ -5,25 +5,36 @@
  @date 2023/6/29 18:22 
 -->
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import { User, Lock, Warning } from "@element-plus/icons-vue";
 
-const userName = ref("");
-const password = ref("");
+import useUserStore from "@/store/modules/user";
+import { ElNotification } from "element-plus";
 
-const form = ref({
-  name: "",
-  region: "",
-  date1: "",
-  date2: "",
-  delivery: false,
-  type: [],
-  resource: "",
-  desc: ""
+let useStore = useUserStore();
+
+import $router from "@/router";
+
+const form = reactive({
+  userName: "",
+  password: ""
 });
 
-const onSubmit = () => {
-  console.log("submit!");
+const onSubmit = async () => {
+  try {
+    await useStore.userLogin(form);
+    $router.push("/");
+    ElNotification({
+      type: "success",
+      message: "登陆成功",
+      title: `Hi, 你好`
+    });
+  } catch (error) {
+    ElNotification({
+      type: "error",
+      message: (error as Error).message
+    });
+  }
 };
 </script>
 
@@ -40,10 +51,10 @@ const onSubmit = () => {
         </el-col>
       </el-row>
       <el-form-item label="用户名">
-        <el-input v-model="userName" :prefix-icon="User" />
+        <el-input v-model="form.userName" :prefix-icon="User" />
       </el-form-item>
       <el-form-item label="密码">
-        <el-input v-model="password" :prefix-icon="Lock" show-password="true" />
+        <el-input v-model="form.password" :prefix-icon="Lock" show-password />
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">登录</el-button>

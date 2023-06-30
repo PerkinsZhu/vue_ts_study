@@ -3,7 +3,7 @@ function createUserList() {
     {
       userId: 1,
       avatar: "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
-      username: "admin",
+      userName: "admin",
       password: "123456",
       desc: "平台管理员",
       roles: ["平台管理员"],
@@ -15,7 +15,7 @@ function createUserList() {
       userId: 2,
       avatar:
         "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
-      username: "system",
+      userName: "system",
       password: "123456",
       desc: "系统管理员",
       roles: ["系统管理员"],
@@ -32,9 +32,13 @@ export default [
     url: "/api/user/login",
     method: "post",
     response: ({ body }) => {
-      const { username, password } = body;
+      const { userName, password } = body;
+
       const checkUser = createUserList()
-        .find((item) => item.username === username && item.password === password);
+        .find((item) => {
+          return item.userName === userName && item.password === password;
+        });
+
       if (checkUser) {
         return {
           code: 200,
