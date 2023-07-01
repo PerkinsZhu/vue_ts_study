@@ -5,13 +5,13 @@
  @date 2023/6/28 16:17
 -->
 <script setup lang="ts">
-
+import Logo from '@/layout/logo/index.vue'
 </script>
 
 <template>
   <div class="layout_container">
     <div class="layout_slider">
-      菜单栏
+      <Logo></Logo>
     </div>
     <div class="layout_navbar">
       导航条
@@ -44,13 +44,14 @@
     height: $base_navbar_height;
     background-color: tomato;
   }
+
   .layout_main {
     position: absolute;
-    top :$base_navbar_height;
-    left:$base_menu_width;
+    top: $base_navbar_height;
+    left: $base_menu_width;
     background-color: orange;
     width: calc(100% - $base_menu_width);
-    height:calc(100vh - $base_navbar_height);
+    height: calc(100vh - $base_navbar_height);
     padding: 20px;
     //主面板内容溢出时，会自动设置滚动条
     overflow: auto;
