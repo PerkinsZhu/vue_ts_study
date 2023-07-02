@@ -6,13 +6,30 @@
 -->
 <script setup lang="ts">
 import Logo from '@/layout/logo/index.vue'
+import useUserStore from "@/store/modules/user.ts";
+ import Menu from "@/layout/menu/index.vue";
+
+const useStore = useUserStore();
+
+function handleSelect(){
+  console.log("handleSelect")
+}
 </script>
 
 <template>
   <div class="layout_container">
     <div class="layout_slider">
       <Logo></Logo>
+
+      <el-scrollbar height="400px" class="layout_scrollbar">
+        <el-menu mode="vertical"  class="menu" @select="handleSelect" >
+          <Menu :menuList="useStore.menuRoutes"></Menu>
+        </el-menu>
+      </el-scrollbar>
     </div>
+
+
+
     <div class="layout_navbar">
       导航条
     </div>
@@ -34,6 +51,10 @@ import Logo from '@/layout/logo/index.vue'
     width: $base_menu_width;
     height: 100vh;
     background-color: $base_menu_background;
+
+    .layout_scrollbar {
+      height: calc(100vh - $base_logo_height);
+    }
   }
 
   .layout_navbar {

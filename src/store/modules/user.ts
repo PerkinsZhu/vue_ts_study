@@ -8,13 +8,16 @@
 import { defineStore } from "pinia";
 import { reqLogin } from "@/api/user";
 import { LoginFormData } from "@/api/user/type.ts";
+import {constantRoute} from "@/router/routes.ts";
+import {UserState} from "@/store/modules/types";
 
 const TOKEN_KEY = "TOKEN";
 
 const useUserStore = defineStore("User", {
-  state: () => {
+  state: ():UserState => {
     return {
-      token: localStorage.getItem(TOKEN_KEY)
+      token: localStorage.getItem(TOKEN_KEY),
+      menuRoutes: constantRoute
     };
   },
   actions: {

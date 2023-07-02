@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   padding: 10px 20px;
+  height: $base_logo_height;
 
   img {
     width: 40px;
