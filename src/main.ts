@@ -15,8 +15,11 @@ import "@/styles/index.scss";
 
 import pinia from "@/store";
 
+import globalComponents from "@/components/index.ts";
+
 const app = createApp(App);
 
+app.use(globalComponents);
 app.use(router);
 app.use(pinia);
 

@@ -5,15 +5,15 @@
  @date 2023/6/28 16:17
 -->
 <script setup lang="ts">
-import Logo from '@/layout/logo/index.vue'
+import Logo from "@/layout/logo/index.vue";
 import useUserStore from "@/store/modules/user.ts";
- import Menu from "@/layout/menu/index.vue";
+import Menu from "@/layout/menu/index.vue";
 
 const useStore = useUserStore();
+const handleSelect = (index, indexPath, route) => {
+  console.log(index, indexPath, route);
+};
 
-function handleSelect(){
-  console.log("handleSelect")
-}
 </script>
 
 <template>
@@ -22,19 +22,21 @@ function handleSelect(){
       <Logo></Logo>
 
       <el-scrollbar height="400px" class="layout_scrollbar">
-        <el-menu mode="vertical"  class="menu" @select="handleSelect" >
+        <el-menu mode="vertical" class="menu" @select="handleSelect">
           <Menu :menuList="useStore.menuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
     </div>
 
 
-
     <div class="layout_navbar">
       导航条
     </div>
     <div class="layout_main">
-      <p style="height:10000px;background-color: green;">主面板</p>
+      <p style="height:10000px;background-color: green;">主面板
+        <SvgIcon name="search" width="100px" height="100px"></SvgIcon>
+        <svg-icon name="phone" color="red"></svg-icon>
+      </p>
     </div>
   </div>
 
