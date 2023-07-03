@@ -55,5 +55,9 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
+.menu{
+  text-color: #ffffff;
+  background-color: $base_menu_background;
+  active-text-color:skyblue;
+}
 </style>

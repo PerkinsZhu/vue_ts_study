@@ -21,8 +21,14 @@ const handleSelect = (index, indexPath, route) => {
     <div class="layout_slider">
       <Logo></Logo>
 
-      <el-scrollbar height="400px" class="layout_scrollbar">
-        <el-menu mode="vertical" class="menu" @select="handleSelect">
+      <el-scrollbar class="layout_scrollbar">
+
+<!--         text-color 注意这些是属性，不是css样式，写在css不会生效-->
+        <el-menu mode="vertical" class="menu"
+                 text-color="#ffffff"
+                 background-color="$base_menu_background"
+                 active-text-color="skyblue"
+                 @select="handleSelect">
           <Menu :menuList="useStore.menuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
@@ -47,7 +53,6 @@ const handleSelect = (index, indexPath, route) => {
 .layout_container {
   width: 100%;
   height: 100vh;
-  background-color: skyblue;
 
   .layout_slider {
     width: $base_menu_width;
