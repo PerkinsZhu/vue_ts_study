@@ -37,6 +37,7 @@ export const constantRoute = [
         ],
     },
     {
+        //TODO 查查嵌套路由的写法，为何会渲染在APP.vue中
         path: '/screen',
         component: () => import('@/views/screen/index.vue'),
         name: 'Screen',

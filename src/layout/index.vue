@@ -8,10 +8,13 @@
 import Logo from "@/layout/logo/index.vue";
 import useUserStore from "@/store/modules/user.ts";
 import Menu from "@/layout/menu/index.vue";
+import { useRouter } from "vue-router";
 
 const useStore = useUserStore();
+const $router = useRouter();
+
 const handleSelect = (index, indexPath, route) => {
-  console.log(index, indexPath, route);
+  $router.push(index);
 };
 
 </script>
@@ -23,7 +26,7 @@ const handleSelect = (index, indexPath, route) => {
 
       <el-scrollbar class="layout_scrollbar">
 
-<!--         text-color 注意这些是属性，不是css样式，写在css不会生效-->
+        <!--         text-color 注意这些是属性，不是css样式，写在css不会生效-->
         <el-menu mode="vertical" class="menu"
                  text-color="#ffffff"
                  background-color="$base_menu_background"
@@ -39,9 +42,8 @@ const handleSelect = (index, indexPath, route) => {
       导航条
     </div>
     <div class="layout_main">
-      <p style="height:10000px;background-color: green;">主面板
-        <SvgIcon name="search" width="100px" height="100px"></SvgIcon>
-        <svg-icon name="phone" color="red"></svg-icon>
+      <p style="background-color: green;">主面板
+        <router-view></router-view>
       </p>
     </div>
   </div>
@@ -70,14 +72,14 @@ const handleSelect = (index, indexPath, route) => {
     top: 0px;
     width: calc(100% - $base_menu_width);
     height: $base_navbar_height;
-    background-color: tomato;
+    background-color: rgba(255, 99, 71, 0.52);
   }
 
   .layout_main {
     position: absolute;
     top: $base_navbar_height;
     left: $base_menu_width;
-    background-color: orange;
+    background-color: rgba(255, 165, 0, 0.2);
     width: calc(100% - $base_menu_width);
     height: calc(100vh - $base_navbar_height);
     padding: 20px;
