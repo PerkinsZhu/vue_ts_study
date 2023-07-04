@@ -9,11 +9,16 @@ import Logo from "@/layout/logo/index.vue";
 import useUserStore from "@/store/modules/user.ts";
 import Menu from "@/layout/menu/index.vue";
 import { useRouter } from "vue-router";
+import Main from "@/layout/main/index.vue";
+import { ref } from "vue";
+import Tabbar from "@/layout/tabbar/index.vue";
 
 const useStore = useUserStore();
 const $router = useRouter();
 
+const currentRoute = ref([]);
 const handleSelect = (index, indexPath, route) => {
+  currentRoute.value = indexPath;
   $router.push(index);
 };
 
@@ -21,6 +26,7 @@ const handleSelect = (index, indexPath, route) => {
 
 <template>
   <div class="layout_container">
+    <!-- 菜单栏开始 -->
     <div class="layout_slider">
       <Logo></Logo>
 
@@ -36,15 +42,17 @@ const handleSelect = (index, indexPath, route) => {
         </el-menu>
       </el-scrollbar>
     </div>
+    <!-- 菜单栏结束 -->
 
-
+    <!-- 导航栏开始 -->
     <div class="layout_navbar">
-      导航条
+     <Tabbar v-bind:currentRoute="currentRoute"></Tabbar>
     </div>
+    <!-- 导航栏结束 -->
+
     <div class="layout_main">
-      <p style="background-color: green;">主面板
-        <router-view></router-view>
-      </p>
+      <p>主面板</p>
+      <Main></Main>
     </div>
   </div>
 
