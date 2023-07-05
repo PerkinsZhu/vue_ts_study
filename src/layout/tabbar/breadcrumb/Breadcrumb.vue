@@ -8,6 +8,7 @@
 
 import { ArrowRight } from "@element-plus/icons-vue";
 import { ref } from "vue";
+import  useSettingStore  from "@/store/modules/setting.ts";
 
 defineProps({
   currentRoute: []
@@ -15,17 +16,19 @@ defineProps({
 
 let expanded = ref(true);
 
+const settingStore = useSettingStore();
+
 function doExpand() {
   expanded.value = !expanded.value;
-
+  settingStore.setFold(expanded.value);
 }
 </script>
 
 <template>
-  <el-icon size="30" @click="doExpand" v-if="!expanded">
+  <el-icon size="30" @click="doExpand" v-if="expanded">
     <Expand />
   </el-icon>
-  <el-icon size="30" @click="doExpand" v-if="expanded">
+  <el-icon size="30" @click="doExpand" v-if="!expanded">
     <Fold />
   </el-icon>
 

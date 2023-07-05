@@ -2,6 +2,8 @@ $color: red;
 
 //菜单栏宽度
 $base_menu_width: 20%;
+//菜单栏折叠宽度
+$base_menu_fold_width: 80px;
 //菜单栏背景颜色
 $base_menu_background: #001529;
 
@@ -9,3 +11,6 @@ $base_menu_background: #001529;
 $base_navbar_height: 40px;
 
 $base_logo_height: 40px;
+
+//菜单栏过渡动画时间
+$base_transition_time: 0.3s;

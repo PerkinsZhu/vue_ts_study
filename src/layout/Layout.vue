@@ -12,14 +12,26 @@ import { useRouter } from "vue-router";
 import Main from "@/layout/main/Main.vue";
 import { ref } from "vue";
 import Tabbar from "@/layout/tabbar/Tabbar.vue";
+import useSettingStore from "@/store/modules/setting.ts";
+import { watch } from "vue";
+
+const settingStore = useSettingStore();
 
 const useStore = useUserStore();
 const $router = useRouter();
 
 const currentRoute = ref([]);
+
+watch(
+  () => settingStore.getFold(),
+  (newVal, oldVal) => {
+    console.log("监听到了", newVal, oldVal);
+  }
+);
+
 const handleSelect = (index, indexPath, route) => {
   currentRoute.value = indexPath;
-  $router.push(Layout);
+  $router.push(index);
 };
 
 </script>
@@ -27,7 +39,7 @@ const handleSelect = (index, indexPath, route) => {
 <template>
   <div class="layout_container">
     <!-- 菜单栏开始 -->
-    <div class="layout_slider">
+    <div class="layout_slider" :class="settingStore.fold ?'fold':''">
       <Logo></Logo>
 
       <el-scrollbar class="layout_scrollbar">
@@ -37,6 +49,8 @@ const handleSelect = (index, indexPath, route) => {
                  text-color="#ffffff"
                  background-color="$base_menu_background"
                  active-text-color="skyblue"
+                 :collapse="settingStore.fold"
+                 :collapse-transition="true"
                  @select="handleSelect">
           <Menu :menuList="useStore.menuRoutes"></Menu>
         </el-menu>
@@ -45,12 +59,12 @@ const handleSelect = (index, indexPath, route) => {
     <!-- 菜单栏结束 -->
 
     <!-- 导航栏开始 -->
-    <div class="layout_navbar">
-     <Tabbar v-bind:currentRoute="currentRoute"></Tabbar>
+    <div class="layout_navbar" :class="settingStore.fold ?'fold':''">
+      <Tabbar v-bind:currentRoute="currentRoute"></Tabbar>
     </div>
     <!-- 导航栏结束 -->
 
-    <div class="layout_main">
+    <div class="layout_main" :class="settingStore.fold ?'fold':''">
       <p>主面板</p>
       <Main></Main>
     </div>
@@ -68,9 +82,14 @@ const handleSelect = (index, indexPath, route) => {
     width: $base_menu_width;
     height: 100vh;
     background-color: $base_menu_background;
+    transition: all $base_transition_time;
 
     .layout_scrollbar {
       height: calc(100vh - $base_logo_height);
+    }
+
+    &.fold {
+      width: $base_menu_fold_width;
     }
   }
 
@@ -81,6 +100,12 @@ const handleSelect = (index, indexPath, route) => {
     width: calc(100% - $base_menu_width);
     height: $base_navbar_height;
     background-color: rgba(255, 99, 71, 0.52);
+    transition: all $base_transition_time;
+
+    &.fold {
+      width: calc(100% - $base_menu_fold_width);
+      left: $base_menu_fold_width;
+    }
   }
 
   .layout_main {
@@ -93,8 +118,22 @@ const handleSelect = (index, indexPath, route) => {
     padding: 20px;
     //主面板内容溢出时，会自动设置滚动条
     overflow: auto;
+    transition: all $base_transition_time;
+
+    &.fold {
+      width: calc(100% - $base_menu_fold_width);
+      left: $base_menu_fold_width;
+    }
   }
 
 }
 
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: $base_menu_width;
+  min-height: $base_menu_fold_width;
+}
+
+.el-menu{
+  border-right: solid 0px;
+}
 </style>
