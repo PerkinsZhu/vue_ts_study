@@ -6,8 +6,8 @@
 -->
 <script setup lang="ts">
 
-import Setting from "./setting/index.vue";
-import BreadCrumb from "./breadcrumb/index.vue";
+import Setting from "./setting/Setting.vue";
+import BreadCrumb from "./breadcrumb/Breadcrumb.vue";
 
 defineProps({
   currentRoute: []

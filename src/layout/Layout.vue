@@ -5,13 +5,13 @@
  @date 2023/6/28 16:17
 -->
 <script setup lang="ts">
-import Logo from "@/layout/logo/index.vue";
+import Logo from "@/layout/logo/Logo.vue";
 import useUserStore from "@/store/modules/user.ts";
-import Menu from "@/layout/menu/index.vue";
+import Menu from "@/layout/menu/Menu.vue";
 import { useRouter } from "vue-router";
-import Main from "@/layout/main/index.vue";
+import Main from "@/layout/main/Main.vue";
 import { ref } from "vue";
-import Tabbar from "@/layout/tabbar/index.vue";
+import Tabbar from "@/layout/tabbar/Tabbar.vue";
 
 const useStore = useUserStore();
 const $router = useRouter();
@@ -19,7 +19,7 @@ const $router = useRouter();
 const currentRoute = ref([]);
 const handleSelect = (index, indexPath, route) => {
   currentRoute.value = indexPath;
-  $router.push(index);
+  $router.push(Layout);
 };
 
 </script>

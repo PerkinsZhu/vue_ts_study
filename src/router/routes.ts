@@ -16,7 +16,7 @@ export const constantRoute = [
     },
     {
         path: '/',
-        component: () => import('@/layout/index.vue'),
+        component: () => import('@/layout/Layout.vue'),
         name: 'layout',
         meta: {
             title: '',
@@ -49,7 +49,7 @@ export const constantRoute = [
     },
     {
         path: '/acl',
-        component: () => import('@/layout/index.vue'),
+        component: () => import('@/layout/Layout.vue'),
         name: 'Acl',
         meta: {
             title: '权限管理',
@@ -92,7 +92,7 @@ export const constantRoute = [
     },
     {
         path: '/product',
-        component: () => import('@/layout/index.vue'),
+        component: () => import('@/layout/Layout.vue'),
         name: 'Product',
         meta: {
             title: '商品管理',
@@ -157,7 +157,7 @@ export const constantRoute = [
 export const asyncRoute = [
     {
         path: '/acl',
-        component: () => import('@/layout/index.vue'),
+        component: () => import('@/layout/Layout.vue'),
         name: 'Acl',
         meta: {
             title: '权限管理',
@@ -200,7 +200,7 @@ export const asyncRoute = [
     },
     {
         path: '/product',
-        component: () => import('@/layout/index.vue'),
+        component: () => import('@/layout/Layout.vue'),
         name: 'Product',
         meta: {
             title: '商品管理',
