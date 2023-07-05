@@ -8,27 +8,27 @@
 
 import { ArrowRight } from "@element-plus/icons-vue";
 import { ref } from "vue";
-import  useSettingStore  from "@/store/modules/setting.ts";
+import useSettingStore from "@/store/modules/setting.ts";
 
 defineProps({
   currentRoute: []
 });
 
-let expanded = ref(true);
+let isFold = ref(false);
 
 const settingStore = useSettingStore();
 
 function doExpand() {
-  expanded.value = !expanded.value;
-  settingStore.setFold(expanded.value);
+  isFold.value = !isFold.value;
+  settingStore.setFold(isFold.value);
 }
 </script>
 
 <template>
-  <el-icon size="30" @click="doExpand" v-if="expanded">
+  <el-icon size="30" @click="doExpand" v-if="isFold">
     <Expand />
   </el-icon>
-  <el-icon size="30" @click="doExpand" v-if="!expanded">
+  <el-icon size="30" @click="doExpand" v-if="!isFold">
     <Fold />
   </el-icon>
 
