@@ -46,9 +46,9 @@ const handleSelect = (index, indexPath, route) => {
 
         <!--         text-color 注意这些是属性，不是css样式，写在css不会生效-->
         <el-menu mode="vertical" class="menu"
-                 text-color="#ffffff"
-                 background-color="$base_menu_background"
-                 active-text-color="skyblue"
+                 active-text-color="#ffd04b"
+                 background-color="#001529"
+                 text-color="#fff"
                  :collapse="settingStore.fold"
                  :collapse-transition="true"
                  @select="handleSelect">
@@ -136,4 +136,5 @@ const handleSelect = (index, indexPath, route) => {
 .el-menu{
   border-right: solid 0px;
 }
+
 </style>
