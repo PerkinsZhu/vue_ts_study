@@ -6,12 +6,15 @@
 -->
 <script setup lang="ts">
   import setting from "@/setting.ts"
+
+  defineProps(["fold"]);
+
 </script>
 
 <template>
   <div class="logo_container" v-if="setting.showTitle">
     <img :src="setting.log_img" alt=""/>
-    <p>{{ setting.title }}</p>
+    <p v-if="!fold">{{ setting.title }}</p>
   </div>
 </template>
 

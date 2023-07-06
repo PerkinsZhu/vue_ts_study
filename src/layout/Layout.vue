@@ -40,7 +40,7 @@ const handleSelect = (index, indexPath, route) => {
   <div class="layout_container">
     <!-- 菜单栏开始 -->
     <div class="layout_slider" :class="settingStore.fold ?'fold':''">
-      <Logo></Logo>
+      <Logo :fold="settingStore.fold"></Logo>
 
       <el-scrollbar class="layout_scrollbar">
 
@@ -133,7 +133,7 @@ const handleSelect = (index, indexPath, route) => {
   min-height: $base_menu_fold_width;
 }
 
-.el-menu{
+.el-menu {
   border-right: solid 0px;
 }
 
