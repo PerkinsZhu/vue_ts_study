@@ -11,7 +11,10 @@ import { ref } from "vue";
 import useSettingStore from "@/store/modules/setting.ts";
 
 defineProps({
-  currentRoute: []
+  currentRoute: {
+    type: Array,
+    default: new Array(0)
+  }
 });
 
 let isFold = ref(false);

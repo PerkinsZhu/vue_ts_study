@@ -10,7 +10,10 @@ import Setting from "./setting/Setting.vue";
 import BreadCrumb from "./breadcrumb/Breadcrumb.vue";
 
 defineProps({
-  currentRoute: []
+  currentRoute: {
+    type: Array,
+    default: new Array(0)
+  }
 });
 </script>
 

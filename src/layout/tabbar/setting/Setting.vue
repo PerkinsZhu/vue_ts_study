@@ -7,11 +7,24 @@
 <script setup lang="ts">
 
 import { FullScreen, Refresh, Search, Setting } from "@element-plus/icons-vue";
+import useSettingStore from "@/store/modules/setting.ts";
+import { nextTick } from "vue";
+
+const settingStore = useSettingStore();
+
+// 修改全局的刷新状态，并在下一次渲染后恢复
+function refresh() {
+  settingStore.refsh = true;
+  nextTick(() => {
+    settingStore.refsh = false;
+  });
+};
+
 </script>
 
 <template>
   <el-button :icon="Search" circle />
-  <el-button type="primary" :icon="Refresh" circle />
+  <el-button type="primary" :icon="Refresh" circle @click="refresh" />
   <el-button type="success" :icon="FullScreen" circle />
   <el-button type="info" :icon="Setting" circle />
   <img src="@/assets/images/user.png" alt="user">

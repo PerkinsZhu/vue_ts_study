@@ -10,15 +10,22 @@ import { defineStore } from "pinia";
 const useSettingStore = defineStore("Setting", {
   state: () => {
     return {
-      fold: false
+      fold: false,
+      refsh: false
     };
   },
   actions: {
     setFold(fold: boolean) {
-      this.fold =  fold;
+      this.fold = fold;
     },
     getFold() {
       return this.fold;
+    },
+    setRefsh(refsh: boolean) {
+      this.refsh = refsh;
+    },
+    getRefsh() {
+      return this.refsh;
     }
   }
 });

@@ -13,7 +13,7 @@ import Main from "@/layout/main/Main.vue";
 import { ref } from "vue";
 import Tabbar from "@/layout/tabbar/Tabbar.vue";
 import useSettingStore from "@/store/modules/setting.ts";
-import { watch } from "vue";
+import { watch, nextTick } from "vue";
 
 const settingStore = useSettingStore();
 
@@ -22,10 +22,24 @@ const $router = useRouter();
 
 const currentRoute = ref([]);
 
+const refresh = ref(false);
 watch(
   () => settingStore.getFold(),
   (newVal, oldVal) => {
     console.log("监听到了", newVal, oldVal);
+  }
+);
+
+// 监听到数据变化后，需要刷新页面，先设置为false(页面销毁)，然后再设置为true(页面新建)
+watch(
+  () => settingStore.getRefsh(),
+  (newVal, oldVal) => {
+    console.log("111监听到了", newVal, oldVal);
+    refresh.value = false;
+    nextTick(() => {
+      refresh.value = true;
+      console.log("2222监听到了", newVal, oldVal);
+    });
   }
 );
 
@@ -66,7 +80,7 @@ const handleSelect = (index, indexPath, route) => {
 
     <div class="layout_main" :class="settingStore.fold ?'fold':''">
       <p>主面板</p>
-      <Main></Main>
+      <Main v-if="refresh"></Main>
     </div>
   </div>
 
