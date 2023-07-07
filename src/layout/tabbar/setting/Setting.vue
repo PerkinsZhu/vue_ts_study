@@ -10,10 +10,12 @@ import { FullScreen, Refresh, Search, Setting } from "@element-plus/icons-vue";
 import useSettingStore from "@/store/modules/setting.ts";
 import useUserStore from "@/store/modules/user.ts";
 import { nextTick } from "vue";
-import router from "@/router";
+import { useRouter, useRoute } from "vue-router";
 
 const settingStore = useSettingStore();
 const useStore = useUserStore();
+const $route = useRoute();
+const $router = useRouter();
 
 // 修改全局的刷新状态，并在下一次渲染后恢复
 function refresh() {
@@ -32,9 +34,9 @@ function fullScreen() {
   }
 }
 
-function logout(){
-  useStore.logout()
-  router.push("/login")
+function logout() {
+  useStore.logout();
+  $router.push({ path: "/login", query: { redirect: $route.path } });
 }
 </script>
 

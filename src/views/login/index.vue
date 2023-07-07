@@ -13,11 +13,14 @@ import { ElNotification, FormRules } from "element-plus";
 
 let useStore = useUserStore();
 
-import $router from "@/router";
+import { useRouter, useRoute } from "vue-router";
 
 const loading = ref(false);
 
 let loginFormRef = ref();
+const $router = useRouter();
+const $route = useRoute();
+
 const form = reactive({
   userName: "",
   password: ""
@@ -46,7 +49,9 @@ const onSubmit = async () => {
   loading.value = true;
   try {
     await useStore.userLogin(form);
-    $router.push("/");
+    const redirect: any = $route.query.redirect;
+    await $router.push({ path: redirect || "/" });
+
     ElNotification({
       type: "success",
       message: "登陆成功",
@@ -84,7 +89,7 @@ const onSubmit = async () => {
         <el-input v-model="form.password" :prefix-icon="Lock" show-password />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary"  class="loginButton" @click="onSubmit" :loading="loading" >登录</el-button>
+        <el-button type="primary" class="loginButton" @click="onSubmit" :loading="loading">登录</el-button>
       </el-form-item>
     </el-form>
   </div>
