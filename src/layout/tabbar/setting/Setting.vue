@@ -20,12 +20,21 @@ function refresh() {
   });
 };
 
+function fullScreen() {
+  const isFull = document.fullscreenElement;
+  if (!isFull) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
 </script>
 
 <template>
   <el-button :icon="Search" circle />
   <el-button type="primary" :icon="Refresh" circle @click="refresh" />
-  <el-button type="success" :icon="FullScreen" circle />
+  <el-button type="success" :icon="FullScreen" circle @click="fullScreen" />
   <el-button type="info" :icon="Setting" circle />
   <img src="@/assets/images/user.png" alt="user">
   <el-dropdown>
