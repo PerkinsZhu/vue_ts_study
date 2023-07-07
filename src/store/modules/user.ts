@@ -51,7 +51,6 @@ const useUserStore = defineStore("User", {
       }
     }
   },
-
   getters: {}
 });
 
