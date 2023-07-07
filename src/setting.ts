@@ -7,6 +7,6 @@
 
 export default {
     log_img: "public/logo.png",
-    title: "天堂购物系统",
+    title: "Test-VUE",
     showTitle: true,
 }

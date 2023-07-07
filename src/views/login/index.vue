@@ -37,7 +37,7 @@ const rules = {
       message: "密码必填",
       trigger: "change"
     },
-    { min: 5, max: 8, message: "密码长度必须大于5", trigger: "change" }
+    { min: 5, max: 18, message: "密码长度必须大于5", trigger: "change" }
   ]
 };
 

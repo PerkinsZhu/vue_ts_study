@@ -29,8 +29,8 @@ const useUserStore = defineStore("User", {
     async userLogin(formData: LoginFormData) {
       const loginResponseData = await reqLogin(formData);
       if (loginResponseData.code == 200) {
-        this.token = loginResponseData.data.token;
-        localStorage.setItem(TOKEN_KEY, loginResponseData.data.token);
+        this.token = loginResponseData.data;
+        localStorage.setItem(TOKEN_KEY, loginResponseData.token);
         console.log("loginResponseData", loginResponseData);
         return "ok";
       } else {
@@ -42,9 +42,9 @@ const useUserStore = defineStore("User", {
 
       if (userInfo.code == 200) {
         this.$state.user = {
-          userName: userInfo.data.user.userName,
+          userName: userInfo.data.name,
           age: 10,
-          avatar: userInfo.data.user.avatar
+          avatar: userInfo.data.avatar
         };
         return "ok";
       } else {

@@ -1,10 +1,11 @@
 import request from "@/utils/request.ts";
-import type { LoginFormData, LoginResponseData, userInfoResponseData } from "./type.ts";
 
 enum API {
-  LOGIN = "/user/login",
-  USERINFO = "/user/info"
+  LOGIN = "/admin/acl/index/login",
+  USERINFO = "/admin/acl/index/info"
 }
 
-export const reqLogin = (data: LoginFormData) => request.post<any, LoginResponseData<any>>(API.LOGIN, data);
-export const reqUserInfo = () => request.get<any, userInfoResponseData>(API.USERINFO);
+export const reqLogin = (data: any) => request.post<any, any>(API.LOGIN,
+  { username: data.userName, password: data.password });
+
+export const reqUserInfo = () => request.get<any, any>(API.USERINFO);
