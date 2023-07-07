@@ -33,6 +33,7 @@ router.beforeEach(async (to, from, next) => {
       if (!userName || userName == "") {
         try {
           await userStore.requestUserInfo();
+          next({ ...to });
         } catch (e) {
           //如果获取失败，则 token过期 或 token被修改，则执行 退出逻辑
           userStore.logout();

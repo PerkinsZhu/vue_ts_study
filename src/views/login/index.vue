@@ -22,8 +22,8 @@ const $router = useRouter();
 const $route = useRoute();
 
 const form = reactive({
-  userName: "",
-  password: ""
+  userName: "admin",
+  password: "atguigu123"
 });
 
 const rules = {
@@ -55,7 +55,9 @@ const onSubmit = async () => {
     ElNotification({
       type: "success",
       message: "登陆成功",
-      title: `Hi, 你好`
+      title: `Hi, 你好`,
+      duration: 1000,
+      offset: 100 //向下偏移100像素
     });
   } catch (error) {
     ElNotification({
