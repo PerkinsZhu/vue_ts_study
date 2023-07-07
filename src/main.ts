@@ -17,6 +17,8 @@ import pinia from "@/store";
 
 import globalComponents from "@/components/index.ts";
 
+import "./permission.ts"
+
 const app = createApp(App);
 
 app.use(globalComponents);
