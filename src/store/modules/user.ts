@@ -39,7 +39,7 @@ const useUserStore = defineStore("User", {
     },
     async requestUserInfo() {
       const userInfo = await reqUserInfo();
-      console.log(userInfo)
+
       if (userInfo.code == 200) {
         this.$state.user = {
           userName: userInfo.data.user.userName,
@@ -49,6 +49,15 @@ const useUserStore = defineStore("User", {
       } else {
         return Promise.reject(new Error(userInfo.message as string));
       }
+    },
+    logout() {
+      this.user = {
+        userName: "",
+        age: 0,
+        avatar: ""
+      };
+      this.token = "";
+      localStorage.removeItem(TOKEN_KEY);
     }
   },
   getters: {}

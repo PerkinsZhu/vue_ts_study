@@ -10,6 +10,7 @@ import { FullScreen, Refresh, Search, Setting } from "@element-plus/icons-vue";
 import useSettingStore from "@/store/modules/setting.ts";
 import useUserStore from "@/store/modules/user.ts";
 import { nextTick } from "vue";
+import router from "@/router";
 
 const settingStore = useSettingStore();
 const useStore = useUserStore();
@@ -31,6 +32,10 @@ function fullScreen() {
   }
 }
 
+function logout(){
+  useStore.logout()
+  router.push("/login")
+}
 </script>
 
 <template>
@@ -48,7 +53,7 @@ function fullScreen() {
           </span>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item>退出登录</el-dropdown-item>
+        <el-dropdown-item @click="logout">退出登录</el-dropdown-item>
       </el-dropdown-menu>
     </template>
   </el-dropdown>
