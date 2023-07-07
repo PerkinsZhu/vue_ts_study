@@ -15,7 +15,6 @@ import Tabbar from "@/layout/tabbar/Tabbar.vue";
 import useSettingStore from "@/store/modules/setting.ts";
 import { watch, nextTick } from "vue";
 
-import { onMounted } from "vue";
 
 const settingStore = useSettingStore();
 
@@ -50,10 +49,6 @@ const handleSelect = (index, indexPath, route) => {
   $router.push(index);
 };
 
-const userStore = useUserStore();
-onMounted(() => {
-  userStore.requestUserInfo();
-});
 </script>
 
 <template>

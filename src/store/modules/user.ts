@@ -46,6 +46,7 @@ const useUserStore = defineStore("User", {
           age: 10,
           avatar: userInfo.data.user.avatar
         };
+        return "ok";
       } else {
         return Promise.reject(new Error(userInfo.message as string));
       }
