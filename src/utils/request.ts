@@ -6,7 +6,8 @@
 * */
 
 import axios from "axios";
-import { ElMessage } from 'element-plus';
+import { ElMessage } from "element-plus";
+import useUserStore from "@/store/modules/user.ts";
 
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
@@ -15,12 +16,15 @@ const request = axios.create({
 
 // 请求拦截器
 request.interceptors.request.use((config) => {
-  console.log("请求拦截器", config)
+  console.log("请求拦截器", config);
+  if (useUserStore().token) {
+    config.headers.token = useUserStore().token;
+  }
   return config;
 });
 
 request.interceptors.response.use((response) => {
-  console.log("响应拦截器", response)
+  console.log("响应拦截器", response);
   return response.data;
 }, error => {
 

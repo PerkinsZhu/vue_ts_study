@@ -1,26 +1,27 @@
-
 // 登录接口需要携带参数ts类型
 export interface LoginFormData {
-  username?: string
-  password?: string
+  username?: string;
+  password?: string;
 }
 
 export interface ResponseData {
-  code?: number
-  message?: string
-  ok?: boolean
+  code?: number;
+  message?: string;
+  ok?: boolean;
 }
 
 export interface LoginResponseData<T> extends ResponseData {
-  data?: T
+  data?: T;
 }
 
 export interface userInfoResponseData extends ResponseData {
   data: {
-    routes: string[]
-    buttons: string[]
-    roles: string[]
-    name: string
-    avatar: string
-  }
+    user: {
+      routes: string[]
+      buttons: string[]
+      roles: string[]
+      userName: string
+      avatar: string
+    }
+  };
 }

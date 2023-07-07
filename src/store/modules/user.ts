@@ -6,18 +6,23 @@
 **/
 
 import { defineStore } from "pinia";
-import { reqLogin } from "@/api/user";
+import { reqLogin, reqUserInfo } from "@/api/user";
 import { LoginFormData } from "@/api/user/type.ts";
-import {constantRoute} from "@/router/routes.ts";
-import {UserState} from "@/store/modules/types";
+import { constantRoute } from "@/router/routes.ts";
+import { UserState } from "@/store/modules/types";
 
 const TOKEN_KEY = "TOKEN";
 
 const useUserStore = defineStore("User", {
-  state: ():UserState => {
+  state: (): UserState => {
     return {
       token: localStorage.getItem(TOKEN_KEY),
-      menuRoutes: constantRoute
+      menuRoutes: constantRoute,
+      user: {
+        userName: "",
+        age: 0,
+        avatar: ""
+      }
     };
   },
   actions: {
@@ -31,8 +36,22 @@ const useUserStore = defineStore("User", {
       } else {
         return Promise.reject(new Error(loginResponseData.message as string));
       }
+    },
+    async requestUserInfo() {
+      const userInfo = await reqUserInfo();
+      console.log(userInfo)
+      if (userInfo.code == 200) {
+        this.$state.user = {
+          userName: userInfo.data.user.userName,
+          age: 10,
+          avatar: userInfo.data.user.avatar
+        };
+      } else {
+        return Promise.reject(new Error(userInfo.message as string));
+      }
     }
   },
+
   getters: {}
 });
 

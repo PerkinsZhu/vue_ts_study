@@ -3,7 +3,7 @@ function createUserList() {
     {
       userId: 1,
       avatar: "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
-      userName: "admin",
+      userName: "管理员",
       password: "123456",
       desc: "平台管理员",
       roles: ["平台管理员"],
@@ -44,7 +44,7 @@ export default [
           code: 200,
           message: "登录成功",
           data: {
-            token: "123456789"
+            token: checkUser.token
           }
         };
       } else {

@@ -8,9 +8,11 @@
 
 import { FullScreen, Refresh, Search, Setting } from "@element-plus/icons-vue";
 import useSettingStore from "@/store/modules/setting.ts";
+import useUserStore from "@/store/modules/user.ts";
 import { nextTick } from "vue";
 
 const settingStore = useSettingStore();
+const useStore = useUserStore();
 
 // 修改全局的刷新状态，并在下一次渲染后恢复
 function refresh() {
@@ -36,10 +38,10 @@ function fullScreen() {
   <el-button type="primary" :icon="Refresh" circle @click="refresh" />
   <el-button type="success" :icon="FullScreen" circle @click="fullScreen" />
   <el-button type="info" :icon="Setting" circle />
-  <img src="@/assets/images/user.png" alt="user">
+  <img :src="useStore.user.avatar" alt="user">
   <el-dropdown>
           <span class="el-dropdown-link">
-            admin
+            {{ useStore.user.userName }}
             <el-icon class="el-icon--right">
               <arrow-down />
             </el-icon>
