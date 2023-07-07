@@ -6,7 +6,7 @@
 **/
 
 import { defineStore } from "pinia";
-import { reqLogin, reqUserInfo } from "@/api/user";
+import { logout, reqLogin, reqUserInfo } from "@/api/user";
 import { LoginFormData } from "@/api/user/type.ts";
 import { constantRoute } from "@/router/routes.ts";
 import { UserState } from "@/store/modules/types";
@@ -51,14 +51,22 @@ const useUserStore = defineStore("User", {
         return Promise.reject(new Error(userInfo.message as string));
       }
     },
-    logout() {
-      this.user = {
-        userName: "",
-        age: 0,
-        avatar: ""
-      };
-      this.token = "";
-      localStorage.removeItem(TOKEN_KEY);
+    async logout() {
+      const res = await logout();
+      console.log("======",res)
+      if (res.code == 200) {
+        this.user = {
+          userName: "",
+          age: 0,
+          avatar: ""
+        };
+        this.token = "";
+        localStorage.removeItem(TOKEN_KEY);
+        return "ok";
+      } else {
+        return Promise.reject(new Error(res.message as string));
+      }
+
     }
   },
   getters: {}

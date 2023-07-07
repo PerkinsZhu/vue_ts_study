@@ -36,7 +36,7 @@ router.beforeEach(async (to, from, next) => {
           next({ ...to });
         } catch (e) {
           //如果获取失败，则 token过期 或 token被修改，则执行 退出逻辑
-          userStore.logout();
+          await userStore.logout();
           next({ path: "/login", query: { redirect: to.path } });
         }
       } else {

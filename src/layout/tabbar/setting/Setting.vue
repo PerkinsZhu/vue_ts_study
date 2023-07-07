@@ -34,8 +34,8 @@ function fullScreen() {
   }
 }
 
-function logout() {
-  useStore.logout();
+async function logout() {
+  await useStore.logout();
   $router.push({ path: "/login", query: { redirect: $route.path } });
 }
 </script>
