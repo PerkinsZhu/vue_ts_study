@@ -80,7 +80,6 @@ const handleSelect = (index, indexPath, route) => {
     <!-- 导航栏结束 -->
 
     <div class="layout_main" :class="settingStore.fold ?'fold':''">
-      <p>主面板</p>
       <Main v-if="refresh"></Main>
     </div>
   </div>
