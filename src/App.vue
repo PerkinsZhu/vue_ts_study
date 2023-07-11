@@ -5,10 +5,13 @@
  @date 2023/6/28 16:17
 -->
 <script setup lang="ts">
+
 </script>
 
 <template>
-  <router-view></router-view>
+  <el-config-provider :locale="locale">
+    <router-view></router-view>
+  </el-config-provider>
 </template>
 
 <style scoped lang="scss">

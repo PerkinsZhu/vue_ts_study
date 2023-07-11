@@ -15,7 +15,6 @@ import Tabbar from "@/layout/tabbar/Tabbar.vue";
 import useSettingStore from "@/store/modules/setting.ts";
 import { watch, nextTick } from "vue";
 
-
 const settingStore = useSettingStore();
 
 const useStore = useUserStore();
@@ -23,7 +22,7 @@ const $router = useRouter();
 
 const currentRoute = ref([]);
 
-const refresh = ref(false);
+const refresh = ref(true);
 watch(
   () => settingStore.getFold(),
   (newVal, oldVal) => {
